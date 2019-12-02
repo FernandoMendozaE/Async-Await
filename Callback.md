@@ -26,36 +26,36 @@ Como verás, si tecleas el código anterior en tu consola obtendrás dos alertas
 
 ### Ejemplo 2
 
-Creación de un servidor con NodeJS donde se maneja las peticiones de los usuarios el responde una respuesta usando un modelo mongoDB.
+Creación de un servidor con NodeJS donde se maneja las peticiones de los >usuarios el responde una respuesta usando un modelo mongoDB.
 
-```javascript
-/**
- * req: Recibe la información del usuario
- * res: Información que se devuelve al navegador
- */
-
-function requestHandler(req, res) {
-  // Realiza una consulta a la BD
-  User.finById(req.userId, function(err, user) {
-    // devolución de la repuesta callback
-    if (err) {
-      res.send(err);
-    } else {
-      Tasks.finById(user.tasksId, function(err, tasks) {
-        if (err) {
-          res.send(err);
-        } else {
-          tasks.completed = true;
-          tasks.save(function(err) {
-            if (err) {
-              res.send(err);
-            } else {
-              res.send("Task Complite");
-            }
-          });
-        }
-      });
-    }
-  });
-}
-```
+> ```javascript
+> /**
+>  * req: Recibe la información del usuario
+>  * res: Información que se devuelve al navegador
+>  */
+>
+> function requestHandler(req, res) {
+>   // Realiza una consulta a la BD
+>   User.finById(req.userId, function(err, user) {
+>     // devolución de la repuesta callback
+>     if (err) {
+>       res.send(err);
+>     } else {
+>       Tasks.finById(user.tasksId, function(err, tasks) {
+>         if (err) {
+>           res.send(err);
+>         } else {
+>           tasks.completed = true;
+>           tasks.save(function(err) {
+>             if (err) {
+>               res.send(err);
+>             } else {
+>               res.send("Task Complite");
+>             }
+>           });
+>         }
+>       });
+>     }
+>   });
+> }
+> ```
